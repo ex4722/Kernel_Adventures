@@ -1,0 +1,70 @@
+[*] Opening challenge driver...
+Created
+Info about index 3
+        Buf: AAAAAAAABBBBBBBBB
+        BUfSize: 31
+        Public: 1
+Created
+Info about index 4
+        Buf: BYE BYE
+        BUfSize: 30
+        Public: 1
+Toggling 1!
+Index 1:
+BYE BYEHCMD> INDX> allocD
+Toggling 1!
+Index 0 deleted!
+Created
+Info about index 0
+        Buf: H
+        BUfSize: 30
+        Public: 1
+CMD>
+alloc
+INDX>
+3
+DATA>
+HI
+DATA LEN>
+30
+Created
+Info about index 5
+        Buf: HI
+        BUfSize: 30
+        Public: 1
+CMD>
+read
+INDX>
+3
+BUFSIZE>
+30
+Index 3:
+AAAAAAAABBBBBBBBBBYE BYEHCM
+CMD>
+read
+INDX>
+2
+BUFSIZE>
+30
+Index 2:
+H
+CMD>
+read
+INDX>
+0
+BUFSIZE>
+30
+Index 0:
+HCMD> INDX> allocDATA> DA
+CMD>
+read
+INDX>
+3
+BUFSIZE>
+30
+Index 3:
+AAAAAAAABBBBBBBBBBYE BYEHCM
+CMD>
+^C
+/ #
+
