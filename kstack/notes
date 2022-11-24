@@ -1,0 +1,27 @@
+When calling mmap use 0x1000 NOT 0x100 and page aligned for addd
+
+Creating userfault fd needs valid addrs
+
+Seems like fautl handler on cares about pages, once handled once don't happen again?? needs to move onto next 0x100 page
+
+First , kfree shm_file_data . After that, perform POP and allocate the slab object used as shm_file_data as an Element structure. After setting pid etc., copy_to_user is performed, but a fault is generated here and processing is transferred to the handler. By doing a PUSH inside it, the pid is properly set, but the data corresponding to Element.value remains a pointer in the previous shm_file_data , which can be leaked. 
+
+No verbose mode lead to 
+Unexpected event on userfaultfd
+[+] Fault at 0x0 caught
+
+
+Leak:
+Mall + Free object with leaks 
+Push onto ur uffd addr 
+Copies PID and ownwer but 0x16 not overwritten
+Handle fault and pop 
+    Pid and ownwer are correct but  value == og objets 
+
+Release
+
+
+AAW AAR:
+Double Free -> Push -> Universal Heap Spray to Overwrite Element pointer??
+
+Can't complile save crap without -no-pie

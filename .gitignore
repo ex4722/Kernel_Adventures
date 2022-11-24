@@ -1,0 +1,6 @@
+./rootfs
+./**/rootfs
+./**/initramtf
+*rootfs*
+*tag*
+*gdb_history*
